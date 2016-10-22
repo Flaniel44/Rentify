@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rentify</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  
+ <%if logged_in? then%>
+ <p>Hello, <%= link_to "#{current_user.name}", current_user %>...<%=link_to "Logout", logout_path, method: "delete"%></p>
+ <%else%>
+ <p><%= link_to "Log in", login_path %></p>
+ <%end%>
+  <body>
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<h1>Signup</h1>
+
+<div>
+	<!--Gives the block a form object --> 
+	<!-- form returns code an html element designed to set an attribute of the @user object-->
+	<%= form_for(@user, url: signup_path) do |form| %>
+	
+		<%= render 'shared/error_messages' %>
+	
+	  <%= form.label :name %>
+	  <%= form.text_field :name, class: 'form-control' %>
+		<br />
+		
+	  <%= form.label :email %>
+	  <%= form.email_field :email, class: 'form-control' %>
+	  <br />
+	
+	  <%= form.label :password %>
+	  <%= form.password_field :password, class: 'form-control' %>
+	  <br />
+	
+	  <%= form.label :password_confirmation, "Confirmation" %>
+	  <%= form.password_field :password_confirmation, class: 'form-control' %>
+	  <br />
+	
+	  <%= form.submit "Create my account", class: "btn btn-primary" %>
+ 	<% end %>
+ 	<p>Existing user? <%= link_to "Login now!", login_path %></p>
+</div>
