@@ -1,1 +1,11 @@
 <%= @user.name %>, <%= @user.email %>
+
+ <div>
+    <% if @user.listings.any? %>
+      <h3>Listings (<%= @user.listings.count %>)</h3>
+      <ol>
+        <%= render @listings %>
+      </ol>
+
+    <% end %>
+  </div>

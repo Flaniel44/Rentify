@@ -9,9 +9,9 @@
   </head>
   
  <%if logged_in? then%>
- <p>Hello, <%= link_to "#{current_user.name}", current_user %>...<%=link_to "Logout", logout_path, method: "delete"%></p>
+ <p>Hello, <%= link_to "#{current_user.name}", current_user %>!  -  <%=link_to "Home", root_path %>    <%=link_to "Logout", logout_path, method: "delete"%></p>
  <%else%>
- <p><%= link_to "Log in", login_path %></p>
+ <p><%= link_to "Log in", login_path %>    <%=link_to "Home", root_path %></p>
  <%end%>
   <body>
     <%= yield %>

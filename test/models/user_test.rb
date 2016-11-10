@@ -7,13 +7,13 @@ class UserTest < ActiveSupport::TestCase
   
   #Sets up a valid User object for use in test cases
   def setup
-    # has_secure_password method in user model enforces validation on password and password_confirmation
+    # has_secure_password method in user model enforces the use of password confirmation
     @user = User.new(name: "Example User", email: "user@example.com", password: "foobar", password_confirmation: "foobar")
   end
 
-  #Tests for user validity
+  #Tests for user validity based on test object
   test "should be valid" do
-    assert @user.valid?
+    assert @user.valid? #returns false if user is not fit based on model specs
   end
   
   #Empty name should be invalid
@@ -94,6 +94,16 @@ class UserTest < ActiveSupport::TestCase
   test "password should have a maximum length" do
     @user.password = @user.password_confirmation = "a" * 51
     assert_not @user.valid?
+  end
+  
+  test "associated microposts should be destroyed" do
+    @user.save
+    @user.listings.create!(title: "Screwdriver for 1 week", category: "Tool", 
+                          postalcode: "K2G8Y9", price: "12", 
+                          duration: "1 week")
+    assert_difference 'Listing.count', -1 do
+      @user.destroy
+    end
   end
   
   

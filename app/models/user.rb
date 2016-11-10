@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :listings, dependent: :destroy
 	before_save { self.email = self.email.downcase } #downcases email upon saving to db
 	
 	#Check for presence and length on name field
@@ -22,4 +23,11 @@ class User < ApplicationRecord
   validates :password, 
   					presence: true, 
   					length: { minimum: 6, maximum: 50 }
+  					
+  # Returns the hash digest of the given string.
+  def User.digest(string)
+  	cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                  BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+  end
 end

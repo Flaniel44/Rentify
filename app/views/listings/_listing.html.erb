@@ -1,0 +1,11 @@
+<!-- A partial for showing a single micropost. --> 
+<li>
+  <span><%= listing.title %></span>, 
+  <span><%= listing.price %></span>, 
+  <span><%= listing.duration %></span>, 
+  <span><%= listing.postalcode %></span>
+  -
+  <span>
+    Posted <%= time_ago_in_words(listing.created_at) %> ago.
+  </span>
+</li>

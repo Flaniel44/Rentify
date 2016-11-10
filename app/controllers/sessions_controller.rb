@@ -8,17 +8,17 @@ class SessionsController < ApplicationController
     #if the password is correct
     if user && user.authenticate(params[:session][:password])
       # Log the user in and redirect to the user's show page.
-      log_in(user) #found in sessionsHelper
+      log_in(user) #found in sessionsHelper. Sets session variable
       redirect_to user #rails converts this to the route for that specific user
     else
       #display error, re-render page
-      @error = "<b>Invalid credentials.</b>".html_safe
+      @error = "<b>Incorrect email and/or password.</b>".html_safe
       render 'new'
     end
   end
 
   def destroy
-    log_out
-    redirect_to root_url
+    log_out #calls logout from sessionHelper. Clears session variable
+    redirect_to root_url  #redirect to root of website
   end
 end
