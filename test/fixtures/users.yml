@@ -1,3 +1,6 @@
+#Author: Daniel Spagnuolo
+#Date: November 10th
+#Creates dummy user data for use in unit tests
 daniel:
   name: Daniel Spagnuolo
   email: daniel@hotmail.com

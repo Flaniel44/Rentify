@@ -1,4 +1,7 @@
-require 'test_helper'
+#Author: Daniel Spagnuolo
+#Date: November 10th
+#tests that users will not be created when invalid info is given
+require 'test_helper'  # sets up fixtures (not being used in this test)
 
 class UsersSignupTest < ActionDispatch::IntegrationTest
   
@@ -13,6 +16,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                          password:              "foo",
                                          password_confirmation: "fo" } }
     end
-    assert_template 'users/new' #checks to see if user is re-shown the signup page
+    assert_template 'users/new' #checks to see if user sign up is re-shown 
+    #after the signup page
   end
 end

@@ -1,3 +1,9 @@
+<!-- 
+Author: Daniel Spagnuolo
+Date: November 10th
+Purpose: automatically generates error messages when user creation validation 
+errors occur
+-->
 <% if @user.errors.any? %>
   <div id="error_explanation">
     <div class="alert alert-danger">

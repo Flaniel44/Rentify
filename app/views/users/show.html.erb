@@ -1,4 +1,12 @@
-<%= @user.name %>, <%= @user.email %>
+<!-- 
+Author: Daniel Spagnuolo
+Date: November 10th
+Purpose: The page for an individual user. Renders all associated Listings, and 
+shows the link for creating a list
+-->
+Username: <%= @user.name %>
+Email: <%= @user.email %>
+<a href="/createListing">Create Listing</a>
 
  <div>
     <% if @user.listings.any? %>

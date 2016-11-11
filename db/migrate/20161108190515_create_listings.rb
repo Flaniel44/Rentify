@@ -1,3 +1,6 @@
+#Author: Daniel Spagnuolo
+#Date: November 10th
+#Creates the database table for listings
 class CreateListings < ActiveRecord::Migration[5.0]
   def change
     create_table :listings do |t|
@@ -10,6 +13,7 @@ class CreateListings < ActiveRecord::Migration[5.0]
       
       t.timestamps
     end
+    # adds a UserID foreign Key
     add_index :listings, [:user_id, :created_at]
   end
 end

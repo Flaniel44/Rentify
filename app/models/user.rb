@@ -1,5 +1,11 @@
+#Author: Daniel Spagnuolo
+#Date: November 10th
+#Defines constraints for the User model to ensure db is well formed
 class User < ApplicationRecord
+  #A user can have many listings associates with it. I Destroy the associated listings
+  #If the user is destroyed
   has_many :listings, dependent: :destroy
+  
 	before_save { self.email = self.email.downcase } #downcases email upon saving to db
 	
 	#Check for presence and length on name field

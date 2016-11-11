@@ -1,6 +1,16 @@
+#Author: Daniel Spagnuolo
+#Date: November 10th
+#This class controls the creation and destroying of the user session variable
 class SessionsController < ApplicationController
+  
   def new
   end
+  
+  #Author: Daniel Spagnuolo
+  #Date: November 10th
+  #The create function validates that the credentials passed to it by POST
+  #match an entry in the database. If it does, sets the session variable.
+  #Otherwise, display login error
   def create
     @error = "" #init error message
     #Finding user using the posted params from the login form
@@ -17,6 +27,9 @@ class SessionsController < ApplicationController
     end
   end
 
+  #Author: Daniel Spagnuolo
+  #Date: November 10th
+  #Destroys the user session when the logout button is pressed
   def destroy
     log_out #calls logout from sessionHelper. Clears session variable
     redirect_to root_url  #redirect to root of website

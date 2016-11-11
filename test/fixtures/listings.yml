@@ -1,3 +1,6 @@
+#Author: Daniel Spagnuolo
+#Date: November 10th
+#Creates dummy listing data for use in unit tests
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
